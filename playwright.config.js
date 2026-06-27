@@ -50,9 +50,15 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+      dependencies: ["setup"],
     },
-
+    {
+      name: "setup",
+      testMatch: /global.setup\.js/,
+    },
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
